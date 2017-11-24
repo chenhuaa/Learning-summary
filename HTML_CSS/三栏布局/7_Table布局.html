@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Table布局</title>
+	<style>	
+		.container {
+			display: table;
+			width: 100%;
+			background-color: pink;
+		}
+		.left,.right,.center {
+			display: table-cell;
+		}
+		.left,.right {
+			width: 200px;
+			height: 400px;
+			background-color: red;
+		}
+		.center {
+			background-color: purple;
+		}
+	</style>
+ </head>
+ <body>
+  <h2>Table布局</h2>
+  <div class="container">
+		<div class="left"></div>
+		<div class="center"></div>
+		<div class="right"></div>
+	</div>
+ </body>
+</html>

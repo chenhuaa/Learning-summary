@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>弹性布局</title>
+	<style>
+		.container {
+			display: flex;
+			background-color: pink;
+		}
+		.left,.right {			
+			background-color: red;
+			flex: 0 1 200px;
+		}
+		.left {
+			margin-left: 20px;
+			height: 400px;
+		}
+		.right {
+			margin-right: 20px;
+			height: 400px;
+			background-color: green;
+		}
+		.center {
+			flex: 1 1 auto;
+			background-color: purple;
+			height: 400px;
+		}
+	</style>
+ </head>
+ <body>
+  <h2>弹性布局</h2>
+	<div class="container">
+		<div class="left"></div>
+		<div class="center"></div>
+		<div class="right"></div>
+	</div>
+ </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>BFC布局</title>
+	<style>
+		.container {
+			background-color: pink;
+		}
+		.left,.right {
+			width: 200px;
+			height: 400px;
+			background-color: red;
+		}
+		.left {
+			float: left;
+			margin-right: 20px;
+		}
+		.right {
+			float: right;
+			margin-left: 20px;		
+		}
+		.center {
+			height: 400px;
+			background-color: #229;
+			overflow: hidden;
+		}
+	</style>
+ </head>
+ <body>
+	<h2>BFC布局</h2>
+  <div class="container">
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="center"></div>
+	</div>
+ </body>
+</html>
