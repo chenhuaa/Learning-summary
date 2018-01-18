@@ -1,0 +1,197 @@
+<!DOCTYPE html>  
+<html>  
+	<head>  
+			<meta charset="UTF-8">  
+			<title>中国地图</title>  
+			<script type="text/javascript" src="../js/jquery.min.js"></script>
+			<script type="text/javascript" src="../js/echarts.js"></script>
+			<script type="text/javascript" src="../js/china.js"></script>
+	</head>  
+	<body>  
+			<div id="main" style="width: 1000px;height: 600px;"></div>  
+			<script>  
+					drawAdMap();  
+					function drawAdMap() {  
+							// 基于准备好的dom，初始化echarts图表  
+							var myChart = echarts.init(document.getElementById('main'));  
+							option = {  
+									title: {  
+											text: "不同地区点击量分布",  
+											x: 'center'  
+									},  
+									tooltip: { //tooltip提示框，鼠标悬浮交互时的信息提示  
+											trigger: 'item' //触发类型，默认数据触发，见下图，可选为：'item' | 'axis'  
+									},  
+									legend: { //legend图例  
+											orient: 'vertical', //布局方式，默认为水平布局，可选为：'horizontal' | 'vertical'  
+											x: 'left',  
+											data: ['点击量'] //图例内容数组  
+									},  
+									dataRange: { //dataRange值域选择  
+											min: 0, //指定的最小值，eg: 0，默认无，必须参数，唯有指定了splitList时可缺省min。  
+											max: 2500,  
+											x: 'left', //水平安放位置，默认为全图左对齐，可选为：'center' | 'left' | 'right' | {number}（x坐标，单位px）  
+											y: 'bottom', //垂直安放位置，默认为全图底部，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）  
+											text: ['高', '低'], // 文本，默认为数值文本  
+											calculable: true //是否启用值域漫游，启用后无视splitNumber和splitList，值域显示为线性渐变  
+									},  
+									toolbox: { //toolbox  
+											show: true,  
+											orient: 'vertical', //布局方式，默认为水平布局，可选为：'horizontal' | 'vertical'  
+											x: 'right',  
+											y: 'center',  
+											feature: {  
+													mark: {  
+															show: true  
+													},  
+													dataView: {  
+															show: true,  
+															readOnly: false  
+													},  
+													restore: {  
+															show: true  
+													},  
+													saveAsImage: {  
+															show: true  
+													}  
+											}  
+									},  
+									roamController: { //缩放漫游组件  
+											show: true,  
+											x: 'right',  
+											mapTypeControl: { //必须，指定漫游组件可控地图类型，如：{ china: true }  
+													'china': true  
+											}  
+									},  
+									//series : eval("[" + dataStr + "]")  
+									series: [ //通用,驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据，其中个别选项仅在部分图表类型中有效  
+											{  
+													name: '点击量',  
+													type: 'map',  
+													mapType: 'china',  
+													itemStyle: {  
+															normal: {  
+																	label: {  
+																			show: true  
+																	}  
+															},  
+															emphasis: {  
+																	label: {  
+																			show: true  
+																	}  
+															}  
+													},  
+													data: [{  
+															name: '北京',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '天津',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '上海',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '重庆',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '河北',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '河南',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '云南',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '辽宁',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '黑龙江',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '湖南',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '安徽',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '山东',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '新疆',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '江苏',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '浙江',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '江西',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '湖北',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '广西',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '甘肃',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '山西',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '内蒙古',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '陕西',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '吉林',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '福建',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '贵州',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '广东',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '青海',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '西藏',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '四川',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '宁夏',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '海南',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '台湾',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '香港',  
+															value: Math.round(Math.random() * 1000)  
+													}, {  
+															name: '澳门',  
+															value: Math.round(Math.random() * 1000)  
+													}]  
+											}  
+									]  
+							};  
+
+							// 为echarts对象加载数据  
+							myChart.setOption(option);  
+
+					}  
+			</script>  
+	</body>  
+</html>  

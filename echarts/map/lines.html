@@ -1,0 +1,117 @@
+<!DOCTYPE html>  
+<html>  
+	<head>  
+			<meta charset="UTF-8">  
+			<title>中国地图</title>  
+			<script type="text/javascript" src="../js/jquery.min.js"></script>
+			<script type="text/javascript" src="../js/echarts.js"></script>
+			<script type="text/javascript" src="../js/china.js"></script>
+			<script type="text/javascript" src="../js/world.js"></script>
+			<script type="text/javascript" src="../js/echarts-gl.js"></script>
+	</head>  
+	<body>  
+			<div id="main" style="width: 1000px;height: 600px;"></div>
+			<script>  
+					/**
+					 * @author liang
+					 * 想问一下为什么3D的lines tooltip不好使是什么原因，
+					 * EC没有开发这个吗还是出现了什么bug
+					 * 最近在研究3D图表，求大神指点一二   交流QQ：466035017
+					*/
+
+				// 使用 echarts 绘制世界地图的实例作为纹理
+				var canvas = document.createElement('canvas');
+				var mapChart = echarts.init(canvas, null, {
+						width: 4096, height: 2048
+				});
+				mapChart.setOption({
+						series: [
+								{
+										type: 'map',
+										map: 'world',
+										// 绘制完整尺寸的 echarts 实例
+										top: 0, left: 0,
+										right: 0, bottom: 0,
+										boundingCoords: [[-180, 90], [180, -90]]
+								}
+						]
+				});
+				option = {
+						backgroundColor: '#333',
+						tooltip: {
+								show: true
+						},
+						visualMap: [{
+								// show: false,
+								type: 'continuous',
+								seriesIndex: 0,
+								text: ['scatter3D'],
+								textStyle: {
+										color: '#fff'
+								},
+								calculable: true,
+								max: 3000,
+								inRange: {
+										color: ['#87aa66', '#eba438', '#d94d4c']
+								}
+						}],
+						globe: {
+								baseTexture: mapChart,
+								// shading: 'lambert',
+								light: { // 光照阴影
+										main: {
+												color: '#fff', // 光照颜色
+												intensity: 1.2, // 光照强度
+												// shadowQuality: 'high', //阴影亮度
+												shadow: false, // 是否显示阴影
+												alpha: 40,
+												beta: -30
+										},
+										ambient: {
+												intensity: 0.5
+										}
+								},
+								viewControl: {
+										alpha: 30,
+										beta: 160,
+										// targetCoord: [116.46, 39.92],
+										autoRotate: true,
+										autoRotateAfterStill: 10,
+										distance: 240
+								}
+						},
+						series: [{
+								name: 'lines3D',
+								type: 'lines3D',
+								coordinateSystem: 'globe',
+								effect: {
+										show: true
+								},
+								blendMode: 'lighter',
+								lineStyle: {
+										width: 2
+								},
+								data: [],
+								silent: false
+						}]
+				}
+				// 随机数据
+				for (let i = 0; i < 500; i++) {
+						option.series[0].data = option.series[0].data.concat(rodamData())
+				}
+				function rodamData () {
+						let name = '随机点' + Math.random().toFixed(5) * 100000
+						// let longitude = Math.random() * 62 + 73
+						let longitude = 105.18
+						let longitude2 = Math.random() * 360 - 180
+						// let latitude = Math.random() * 50 + 3.52
+						let latitude = 37.51
+						let latitude2 = Math.random() * 180 - 90
+						return {
+								coords: [[longitude2, latitude2], [longitude, latitude]],
+								value: (Math.random() * 3000).toFixed(2)
+						}
+				}  
+			</script>  
+	</body>  
+</html>  
