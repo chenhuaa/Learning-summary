@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>详情</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/datedropper.css">
+    <script src="../js/rem.js"></script>
+</head>
+<body>
+    <!--<div id="header">
+        <div class="user-btn"></div>
+        <div class="close-btn"></div>
+    </div>-->
+    <div id="main">
+        <div class="bg-box top-1-rem bottom-3-rem">
+            <p class="title">结算金额详情</p>
+            <p class="text">请选择查询日期</p>
+            <div class="date">
+                <input type="text" id="topMin" name="topMin" class="date_box">
+                <i class="calendar"></i>
+                <i class="to_date"></i>
+                <input type="text" id="topMax" name="topMax" class="date_box">
+                <i class="calendar"></i>
+            </div>
+            <p class="text">请选择结算类型</p>
+            <div class="select">
+                <select name="select_type" id="settlement">
+                    <option value="1">货款</option>
+                    <option value="2">运费</option>
+                    <option value="3">佣金</option>
+                    <option value="4">引流</option>
+                    <option value="5">平台</option>
+                </select>
+            </div>
+        </div>
+        <div class="bg-box table-padding top-1-rem bottom-6-rem">
+           <table  id="detail-table" class="table">
+               <thead>
+                <tr>
+                    <th>实体名称</th>
+                    <th>应收</th>
+                    <th>应付</th>
+                </tr>
+               </thead>
+           </table>
+        </div>
+    </div>
+    <div id="footer">
+        <ul class="bottom-btn">
+            <li class="bottom-btn-report">
+                <a href="form-report.html">报表</a>
+            </li>
+            <li class="bottom-btn-detail detail-active">
+                <a href="form-detail.html">详情</a>
+            </li>
+            <li class="bottom-btn-deal">
+                <a href="form-deal.html">待办</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/datedropper.min.js"></script>
+<script src="../js/financeMan/form-detail.js"></script>
+</html>
