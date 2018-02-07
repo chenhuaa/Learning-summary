@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>拖拽生成</title>
+
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/code.js"></script>
+
+    <!--  公共模块-->
+    <script src="../../plugins/layui/layui.js"></script>
+    <script src="../../plugins/layui/layui.all.js"></script>
+    <script src="../../plugins/echarts/echarts.min.js"></script>
+    <script src="../../plugins/echarts/china.js"></script>
+    <script src="../../plugins/echarts/dark.js"></script>
+    <script src="../../plugins/echarts/pink.js"></script>
+    <script src="../../plugins/echarts/blue.js"></script>
+    <script src="../../scripts/config/config.js"></script>
+    <script src="../../scripts/common/common.js"></script>
+    <script src="../../scripts/api/common-event.js"></script>
+    <script src="../../scripts/api/common-listen.js"></script>
+    <script src="../../scripts/api/common-rule.js"></script>
+    <script src="../../scripts/api/common-fn.js"></script>
+    <!-- 基本组件模块 -->
+    <script src="../../scripts/components/cb-tpl-table.js"></script>
+    <script src="../../scripts/components/chinesebox.js"></script>
+    <script src="../../scripts/components/cb-chart.js"></script>
+
+    <link rel="stylesheet" href="drop.css">
+    <script src="js/equals.js"></script>
+    <script src="drop.js"></script>
+</head>
+<body>
+    <header>
+        <div class="lf">这是一个LOGO</div>
+        <ul class="lf">
+            <li id="btnHeaderEdit" class="lf-btn">编辑</li>
+            <li id="btnBrowser">预览</li>
+            <li id="btnCreateCode">生成代码</li>
+            <li id="btnSave">保存</li>
+            <li id="btnClear">清空</li>
+            <li id="btnLast">撤销</li>
+            <li id="btnNext" class="gt-btn">重做</li>
+        </ul>
+    </header>
+    <div class="left-nav">
+        <ul class="first-list">
+            <li>
+                <span class="up">布局设置</span>
+                <ul id="settle" class="second-list show">
+                    <li><input value="12"><span>拖拽</span></li>
+                    <li><input value="6 6"><span>拖拽</span></li>
+                    <li><input value="8 4"><span>拖拽</span></li>
+                    <li><input value="4 8"><span>拖拽</span></li>
+                    <li><input value="4 4 4"><span>拖拽</span></li>
+                    <li><input value="3 3 3 3"><span>拖拽</span></li>
+                </ul>
+            </li>
+            <li>
+                <span>组件</span>
+                <ul id="component" class="second-list">
+                    <li><input value="图表组件" disabled><span>拖拽</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="container container-dirty">
+    </div>
+    <div class="bottom-nav">
+        <i class="bottom-nav-close">X</i>
+        <div class="configuration"></div>
+        <button class="update">确定</button>
+    </div>
+</body>
+</html>
