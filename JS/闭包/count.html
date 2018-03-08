@@ -1,0 +1,56 @@
+<html>  
+    <head>
+        <meta charset="utf-8">
+        <title>closure</title>
+        <script src="js/vue.js"></script>
+        <style lang="">
+            body{
+                text-align: center
+            }
+            .btncss{
+                background: #5757E7;
+                width: 50px;
+                height: 30px;
+                color: white;
+                margin: 0 auto;
+                outline: none;
+            }    
+        </style>
+    </head>
+    <body>
+        <h3>计数器</h3>
+        <div id="container">
+            <h3 id="num">0</h3>
+            <button class="btncss btn1" onclick="add()">+</button>
+            <button class="btncss btn2" onclick="sub()">-</button>
+        </div>
+        <script>
+            function change(){
+                var data = Number(document.getElementById("num").innerHTML);
+                function count(val){
+                    data += val;
+                }
+                return {
+                    add: function(){
+                        count(1);
+                    },
+                    sub: function(){
+                        count(-1);
+                    },
+                    value: function(){
+                        return data;
+                    }
+                }
+            }
+            var countNumber = change();
+            function add(){
+                countNumber.add();
+                document.getElementById("num").innerHTML = countNumber.value();
+            }
+            function sub(){
+                countNumber.sub();
+                document.getElementById("num").innerHTML = countNumber.value();
+            }
+        </script>
+    </body>
+</html>
