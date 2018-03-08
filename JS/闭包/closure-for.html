@@ -18,14 +18,24 @@
 			document.getElementById('help').innerHTML = help;
 		}
 		
-		
+		/*方法1：使用更多的闭包*/
 		function makeHelpCallBack(help){
 			return function(){
 				showHelp(help);
 			}
 		}
-		
-
+		function setupHelp() {
+			var helpText = [
+					{'id': 'email', 'help': 'Your e-mail address'},
+					{'id': 'name', 'help': 'Your full name'},
+					{'id': 'age', 'help': 'Your age (you must be over 16)'}
+				];
+			for (var i = 0; i < helpText.length; i++) {
+				var item = helpText[i];
+				document.getElementById(item.id).onfocus = makeHelpCallBack(item.help);
+			}
+		}
+		/*方法2：使用匿名闭包*/
 		function setupHelp() {
 			var helpText = [
 					{'id': 'email', 'help': 'Your e-mail address'},
@@ -34,8 +44,27 @@
 				];
 
 			for (var i = 0; i < helpText.length; i++) {
-				var item = helpText[i];
-				document.getElementById(item.id).onfocus = makeHelpCallBack(item.help);
+				(function() {
+					 var item = helpText[i];
+					 document.getElementById(item.id).onfocus = function() {
+						 showHelp(item.help);
+					 }
+				})(); // 马上把当前循环项的item与事件回调相关联起来
+			}
+		}
+		/*方法3：用let关键词*/
+		function setupHelp() {
+			var helpText = [
+					{'id': 'email', 'help': 'Your e-mail address'},
+					{'id': 'name', 'help': 'Your full name'},
+					{'id': 'age', 'help': 'Your age (you must be over 16)'}
+				];
+
+			for (var i = 0; i < helpText.length; i++) {
+				let item = helpText[i];
+				document.getElementById(item.id).onfocus = function() {
+					showHelp(item.help);
+				}
 			}
 		}
 
