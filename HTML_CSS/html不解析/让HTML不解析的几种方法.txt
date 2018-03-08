@@ -1,0 +1,12 @@
+﻿1、将代码放入<xmp></xmp>标签对中
+
+
+	<xmp>标签默认属性有 white-space:pre（保留空白）
+
+2、将 < 换为 "&lt;"，将 > 换为 "&gt;"
+
+	
+
+3、将代码放入<textarea></textarea>中
+	
+	<textarea>标签中有默认属性white-space:pre-wrap（允许长单词或 URL 地址换行到下一行）和 white-space:pre-wrap（保留空白符序列，但是正常地进行换行）
